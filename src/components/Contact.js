@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { Consumer } from "../context";
 
 export default class Contact extends Component {
     constructor() {
@@ -14,8 +15,11 @@ export default class Contact extends Component {
         this.setState({ showContactInfo: !this.state.showContactInfo });
     };
 
-    onDeleteClick = (id) => {
-        this.props.deleteClickHandler();
+    onDeleteClick = (id, dispatch) => {
+        dispatch({
+            type: "DELETE_CONTACT",
+            payload: id,
+        });
     };
 
     showContactInfo(showContactInfo, name, email, phone) {
@@ -36,26 +40,43 @@ export default class Contact extends Component {
         const { showContactInfo } = this.state;
 
         return (
-            <div className="card card-body mb-3">
-                <h4>
-                    {name}
-                    <i
-                        className="fas fa-sort-down"
-                        onClick={this.onShowClick}
-                        style={{ cursor: "pointer" }}
-                    ></i>
-                    <i
-                        className="fas fa-times"
-                        style={{
-                            cursor: "pointer",
-                            float: "right",
-                            color: "red",
-                        }}
-                        onClick={this.onDeleteClick}
-                    ></i>
-                </h4>
-                {this.showContactInfo(showContactInfo, name, email, phone)}
-            </div>
+            <Consumer>
+                {(value) => {
+                    const { dispatch } = value;
+
+                    return (
+                        <div className="card card-body mb-3">
+                            <h4>
+                                {name}
+                                <i
+                                    className="fas fa-sort-down"
+                                    onClick={this.onShowClick}
+                                    style={{ cursor: "pointer" }}
+                                ></i>
+                                <i
+                                    className="fas fa-times"
+                                    style={{
+                                        cursor: "pointer",
+                                        float: "right",
+                                        color: "red",
+                                    }}
+                                    onClick={this.onDeleteClick.bind(
+                                        this,
+                                        id,
+                                        dispatch
+                                    )}
+                                ></i>
+                            </h4>
+                            {this.showContactInfo(
+                                showContactInfo,
+                                name,
+                                email,
+                                phone
+                            )}
+                        </div>
+                    );
+                }}
+            </Consumer>
         );
     }
 }
