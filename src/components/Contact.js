@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 export default class Contact extends Component {
     render() {
-        const { name, email, phone } = this.props;
+        const { name, email, phone } = this.props.contact;
         return (
             <div className="card card-body mb-3">
                 <h4>{name}</h4>
