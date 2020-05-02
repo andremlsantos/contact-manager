@@ -2,11 +2,21 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 export default class Contact extends Component {
-    state = {};
+    constructor() {
+        super();
+
+        this.state = {};
+        this.onShowClick = this.onShowClick.bind(this);
+    }
 
     onShowClick() {
         console.log(this.state);
     }
+
+    // no bind required
+    onShowEmail = (email) => {
+        console.log(email);
+    };
 
     render() {
         const { name, email, phone } = this.props.contact;
@@ -16,11 +26,16 @@ export default class Contact extends Component {
                     {name}
                     <i
                         className="fas fa-sort-down"
-                        onClick={this.onShowClick.bind(this)}
+                        onClick={this.onShowClick}
                     ></i>
                 </h4>
                 <ul className="list-group">
-                    <li className="list-group-item">Email: {email}</li>
+                    <li
+                        className="list-group-item"
+                        onClick={this.onShowEmail.bind(this, email)}
+                    >
+                        Email: {email}
+                    </li>
                     <li className="list-group-item">Phone: {phone}</li>
                 </ul>
             </div>
