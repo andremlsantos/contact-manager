@@ -6,7 +6,7 @@ export default class Contact extends Component {
         super();
 
         this.state = {
-            showContactInfo: true,
+            showContactInfo: false,
         };
     }
 
