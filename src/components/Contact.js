@@ -5,21 +5,32 @@ export default class Contact extends Component {
     constructor() {
         super();
 
-        this.state = {};
-        this.onShowClick = this.onShowClick.bind(this);
+        this.state = {
+            showContactInfo: true,
+        };
     }
 
-    onShowClick() {
-        console.log(this.state);
-    }
-
-    // no bind required
-    onShowEmail = (email) => {
-        console.log(email);
+    onShowClick = () => {
+        this.setState({ showContactInfo: !this.state.showContactInfo });
     };
+
+    showContactInfo(showContactInfo, name, email, phone) {
+        if (showContactInfo) {
+            return (
+                <ul className="list-group">
+                    <li className="list-group-item">Email: {email}</li>
+                    <li className="list-group-item">Phone: {phone}</li>
+                </ul>
+            );
+        } else {
+            return null;
+        }
+    }
 
     render() {
         const { name, email, phone } = this.props.contact;
+        const { showContactInfo } = this.state;
+
         return (
             <div className="card card-body mb-3">
                 <h4>
@@ -29,15 +40,7 @@ export default class Contact extends Component {
                         onClick={this.onShowClick}
                     ></i>
                 </h4>
-                <ul className="list-group">
-                    <li
-                        className="list-group-item"
-                        onClick={this.onShowEmail.bind(this, email)}
-                    >
-                        Email: {email}
-                    </li>
-                    <li className="list-group-item">Phone: {phone}</li>
-                </ul>
+                {this.showContactInfo(showContactInfo, name, email, phone)}
             </div>
         );
     }
