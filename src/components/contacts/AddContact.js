@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Consumer } from "../../context";
 import { v4 as uuid } from "uuid";
+import TextInputGroup from "../layout/TextInputGroup";
 
 export default class AddContact extends Component {
     state = {
@@ -58,43 +59,28 @@ export default class AddContact extends Component {
                                             dispatch
                                         )}
                                     >
-                                        <div className="form-group">
-                                            <label htmlFor="name">Name</label>
-                                            <input
-                                                type="text"
-                                                name="name"
-                                                className="form-control form-control-ng"
-                                                placeholder="Enter name"
-                                                required
-                                                value={name}
-                                                onChange={this.onChange}
-                                            ></input>
-                                        </div>
-                                        <div className="form-group">
-                                            <label htmlFor="name">Email</label>
-                                            <input
-                                                type="email"
-                                                name="email"
-                                                className="form-control form-control-ng"
-                                                placeholder="Enter email"
-                                                required
-                                                value={email}
-                                                onChange={this.onChange}
-                                            ></input>
-                                        </div>
-                                        <div className="form-group">
-                                            <label htmlFor="name">Phone</label>
-                                            <input
-                                                type="text"
-                                                name="phone"
-                                                className="form-control form-control-ng"
-                                                placeholder="Enter phone"
-                                                required
-                                                value={phone}
-                                                onChange={this.onChange}
-                                                ref={this.phoneInput}
-                                            ></input>
-                                        </div>
+                                        <TextInputGroup
+                                            label="Name"
+                                            name="name"
+                                            placeholder="Enter a valid name"
+                                            value={name}
+                                            onChange={this.onChange}
+                                        />
+                                        <TextInputGroup
+                                            label="Email"
+                                            name="email"
+                                            type="email"
+                                            placeholder="Enter a valid email"
+                                            value={email}
+                                            onChange={this.onChange}
+                                        />
+                                        <TextInputGroup
+                                            label="Phone"
+                                            name="phone"
+                                            placeholder="Enter a valid phone"
+                                            value={phone}
+                                            onChange={this.onChange}
+                                        />
                                         <input
                                             type="Submit"
                                             className="btn btn-primary btn-block"
