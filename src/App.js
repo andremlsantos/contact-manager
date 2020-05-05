@@ -9,6 +9,7 @@ import About from "./components/pages/About";
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import NouFound from "./components/pages/NouFound";
 
 class App extends Component {
     render() {
@@ -26,6 +27,7 @@ class App extends Component {
                                     component={AddContact}
                                 />
                                 <Route exact path="/about" component={About} />
+                                <Route exact component={NouFound} />
                             </Switch>
                         </div>
                     </div>
