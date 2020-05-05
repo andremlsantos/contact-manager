@@ -18,7 +18,7 @@ export default class AddContact extends Component {
         });
     };
 
-    onSubmit = (dispatch, e) => {
+    onSubmit = async (dispatch, e) => {
         e.preventDefault();
 
         const { name, email, phone } = this.state;
@@ -57,14 +57,14 @@ export default class AddContact extends Component {
             phone,
         };
 
-        Axios.post(
+        const res = await Axios.post(
             "https://jsonplaceholder.typicode.com/users/",
             newContact
-        ).then((res) => {
-            dispatch({
-                type: "ADD_CONTACT",
-                payload: res.data,
-            });
+        );
+
+        dispatch({
+            type: "ADD_CONTACT",
+            payload: res.data,
         });
 
         this.setState({
