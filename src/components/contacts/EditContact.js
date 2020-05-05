@@ -37,34 +37,37 @@ export default class EditContact extends Component {
 
         const { name, email, phone } = this.state;
 
-        // check for errors
+        // Check For Errors
         if (name === "") {
-            this.setState({
-                errors: {
-                    name: "Name is required",
-                },
-            });
+            this.setState({ errors: { name: "Name is required" } });
             return;
         }
 
         if (email === "") {
-            this.setState({
-                errors: {
-                    email: "Email is required",
-                },
-            });
+            this.setState({ errors: { email: "Email is required" } });
             return;
         }
 
         if (phone === "") {
-            this.setState({
-                errors: {
-                    phone: "Phone is required",
-                },
-            });
+            this.setState({ errors: { phone: "Phone is required" } });
             return;
         }
 
+        const updContact = {
+            name,
+            email,
+            phone,
+        };
+
+        const { id } = this.props.match.params;
+        const res = await Axios.put(
+            `https://jsonplaceholder.typicode.com/users/${id}`,
+            updContact
+        );
+
+        dispatch({ type: "UPDATE_CONTACT", payload: res.data });
+
+        // Clear State
         this.setState({
             name: "",
             email: "",
