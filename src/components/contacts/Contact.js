@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Consumer } from "../../context";
 import Axios from "axios";
+import { Link } from "react-router-dom";
 
 export default class Contact extends Component {
     constructor() {
@@ -74,6 +75,17 @@ export default class Contact extends Component {
                                         dispatch
                                     )}
                                 ></i>
+                                <Link to={`contact/edit/${id}`}>
+                                    <i
+                                        className="fas fa-pencil-alt"
+                                        style={{
+                                            cursor: "pointer",
+                                            float: "right",
+                                            color: "black",
+                                            marginRight: "1rem",
+                                        }}
+                                    ></i>
+                                </Link>
                             </h4>
                             {this.showContactInfo(
                                 showContactInfo,
