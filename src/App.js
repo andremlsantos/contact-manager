@@ -5,7 +5,7 @@ import { Provider } from "./context";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import AddContacts from "./components/contacts/AddContacts";
+import AddContact from "./components/contacts/AddContact";
 
 class App extends Component {
     render() {
@@ -14,7 +14,7 @@ class App extends Component {
                 <div className="App">
                     <Header branding="Contact Manager" />
                     <div className="container">
-                        <AddContacts />
+                        <AddContact />
                         <Contacts />
                     </div>
                 </div>
