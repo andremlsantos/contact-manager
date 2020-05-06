@@ -1,6 +1,6 @@
 # Contact Manager App
 
-Contact List full CRUD application using JsonPlaceholder as web api.
+Contact List application with CRUD capabilities using JsonPlaceholder as Web Api.
 
 ## Getting Started
 
@@ -19,7 +19,7 @@ Install Node.js first. Built with latest version
 Runs on localhost:3000
 
 ```
-git clone https://github.com/andremlsantos/secfi-front-end.git
+git clone https://github.com/andremlsantos/contact-manager.git
 npm install
 npm start
 ```
@@ -27,12 +27,12 @@ npm start
 ## Built With
 
 -   [React](https://reactjs.org/) - JavaScript library for building user interfaces. Latest version used as to date
--   [React/Context API](https://reactjs.org/docs/context.html) - React UI Framework
--   [Axios](https://github.com/jerairrest/react-chartjs-2) - React wrapper for Chart.js 2 Open for PRs and contributions!
--   [Bootstrap](https://material-ui.com/) - React UI Framework
--   [Classnames](https://material-ui.com/) - React UI Framework
--   [React-router-dom](https://material-ui.com/) - React UI Framework
--   [Uuid](https://material-ui.com/) - React UI Framework
+-   [React/Context API](https://reactjs.org/docs/context.html) - Context provides a way to pass data through the component tree
+-   [Axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and node.js
+-   [Bootstrap](https://getbootstrap.com/) - Open source toolkit for developing with HTML, CSS, and JS
+-   [Classnames](https://www.npmjs.com/package/classnames/) - A simple JavaScript utility for conditionally joining classNames together.
+-   [React-router](https://www.npmjs.com/package/react-router) - Declarative routing for React.
+-   [Uuid](https://www.npmjs.com/package/uuid) - For the creation of RFC4122 UUIDs
 -   [JsonPlaceholder](https://jsonplaceholder.typicode.com) - Free online Rest Api fake data
 
 ## Try
@@ -45,7 +45,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
--   Hat tip to anyone whose code was used
--   Inspiration from TravisMedia React crash course and chart js,
--   Inspiration from <a href="https://codepen.io/seanstopnik/pen/CeLqA">CodePen CSS Range Slider</a>
--   Inspiration from <a href="https://codepen.io/FlorinPop17/pen/oNNYWxK">Exchange Rate Calculator</a>
+-   Tutorial course from TravisMedia React Front to Back
