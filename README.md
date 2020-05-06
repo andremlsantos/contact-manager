@@ -2,7 +2,7 @@
 
 Contact List application with CRUD capabilities using JsonPlaceholder as Web Api.
 
-## Getting Started
+### Getting Started
 
 Have a look at JSONPlaceholder <a href="https://jsonplaceholder.typicode.com/">here</a>. Its a free online REST API with some fake data
 
